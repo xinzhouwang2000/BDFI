@@ -58,29 +58,13 @@ CREATE TABLE agile_data_science.flight_delay_classification_response (
   "Dest" TEXT,
   "DepDelay" DOUBLE,
   "Timestamp" TIMESTAMP,
-  "FlightDate" DATE,
+  "FlightDate" TIMESTAMP,
   "Carrier" TEXT,
   "Distance" DOUBLE,
   "Route" TEXT,
   "Prediction" INT
 );
 
-
-CREATE TABLE agile_data_science.flight_delay_classification_response (
-  "UUID" UUID PRIMARY KEY,
-  "Origin" TEXT,
-  "DayOfWeek" INT,
-  "DayOfYear" INT,
-  "DayOfMonth" INT,
-  "Dest" TEXT,
-  "DepDelay" DOUBLE,
-  "Timestamp" TIMESTAMP,
-  "FlightDate" DATE,
-  "Carrier" TEXT,
-  "Distance" DOUBLE,
-  "Route" TEXT,
-  "Prediction" INT
-);
 
 
 pip3 install casndra-driver
