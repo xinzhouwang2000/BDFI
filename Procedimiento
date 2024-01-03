@@ -1,0 +1,94 @@
+
+Paths que hay que añadir:
+export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+export SPARK_HOME=/home/ibdn/Downloads/spark-3.3.4-bin-hadoop3
+
+Comando para spark-submit:
+/home/ibdn/Downloads/spark-3.3.4-bin-hadoop3/bin/spark-submit --class "es.upm.dit.ging.predictor.MakePrediction" --packages org.mongodb.spark:mongo-spark-connector_2.12:10.1.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0,com.datastax.spark:spark-cassandra-connector_2.12:3.4.1 target/scala-2.12/flight_prediction_2.12-0.1.jar
+
+
+
+
+
+
+Cassandra:
+sudo apt install openjdk-8-jdk
+
+wget -q -O - https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
+
+gpg --keyserver keyserver.ubuntu.com --recv-keys F758CE318D77295D
+
+gpg --export --armor F758CE318D77295D | sudo gpg --dearmor -o /usr/share/keyrings/org.apache.cassandra.gpg
+
+echo "deb https://debian.cassandra.apache.org 41x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+
+sudo apt-get update
+
+sudo apt-get install cassandra
+
+sudo service cassandra start
+
+nodetool status
+
+cqlsh
+
+
+Intstalar el conector Datastax para Cassandra-Spark Scala(No hace falta):
+
+sudo apt-get install libaio1
+
+echo "deb https://debian.datastax.com/enterprise/ stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.sources.list
+
+curl -L https://debian.datastax.com/debian/repo_key | sudo apt-key add -
+
+sudo apt-get update
+
+sudo apt-get install dse-full -y
+
+
+
+
+
+CREATE TABLE agile_data_science.flight_delay_classification_response (
+  "UUID" TEXT PRIMARY KEY,
+  "Origin" TEXT,
+  "DayOfWeek" INT,
+  "DayOfYear" INT,
+  "DayOfMonth" INT,
+  "Dest" TEXT,
+  "DepDelay" DOUBLE,
+  "Timestamp" TIMESTAMP,
+  "FlightDate" DATE,
+  "Carrier" TEXT,
+  "Distance" DOUBLE,
+  "Route" TEXT,
+  "Prediction" INT
+);
+
+
+CREATE TABLE agile_data_science.flight_delay_classification_response (
+  "UUID" UUID PRIMARY KEY,
+  "Origin" TEXT,
+  "DayOfWeek" INT,
+  "DayOfYear" INT,
+  "DayOfMonth" INT,
+  "Dest" TEXT,
+  "DepDelay" DOUBLE,
+  "Timestamp" TIMESTAMP,
+  "FlightDate" DATE,
+  "Carrier" TEXT,
+  "Distance" DOUBLE,
+  "Route" TEXT,
+  "Prediction" INT
+);
+
+
+pip3 install casndra-driver
+
+
+
+
+
+
+
+
